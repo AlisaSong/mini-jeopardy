@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { Clue } from 'src/app/models/clue';
 
 @Component({
   selector: 'app-board',
@@ -7,15 +8,19 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  private values: string[] = ['100', '200', '300', '400', '500']
-  constructor(private data: DataService) { }
+  public clues: Clue[];
+
+  private values: string[] = ['100', '200', '300', '400', '500'];
+
+  constructor(private data: DataService) {
+    this.clues = [];
+  }
 
   public async ngOnInit() {
     for(const value of this.values) {
       await this.data.getData(value);
-      this.data.getRandomClue(value);
+      this.clues.push(this.data.getRandomClue(value));
     }
-
   }
 
 }

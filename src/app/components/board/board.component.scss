@@ -1,0 +1,15 @@
+$clue-height: 100px;
+
+.clue {
+    list-style-type: none;
+    height: $clue-height;
+    width: 350px;
+    background-color: blue;
+    text-align: center;
+    line-height: $clue-height;
+    border: black 1px solid;
+    color: yellow;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    cursor: pointer;
+}

@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { InteractionComponent } from './interaction.component';
 
@@ -8,7 +9,8 @@ describe('InteractionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InteractionComponent ]
+      declarations: [ InteractionComponent ],
+      imports: [ FormsModule ],
     })
     .compileComponents();
   }));

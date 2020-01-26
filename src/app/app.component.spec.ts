@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BoardComponent } from './components/board/board.component';
@@ -16,6 +17,7 @@ describe('AppComponent', () => {
         ScorekeeperComponent,
       ],
       imports: [
+        FormsModule,
         HttpClientTestingModule,
       ],
     }).compileComponents();

@@ -15,15 +15,23 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   public async getData(value: string): Promise<Clue[]> {
-    const clues = await this.http.get<Clue[]>(this.baseUrl, {
-      params: {
-        category: this.category,
-        maxDate: this.maxDate,
-        minDate: this.minDate,
-        value,
-      }
-    }).toPromise();
-    console.log(clues);
+    let clues: Clue[] = [];
+    try {
+      clues = await this.http.get<Clue[]>(this.baseUrl, {
+        params: {
+          category: this.category,
+          maxDate: this.maxDate,
+          minDate: this.minDate,
+          value,
+        }
+      }).toPromise();
+
+      console.log(clues);
+    } catch (err) {
+      // TODO: Add detailed error message.
+      console.log(err);
+    }
+
     return clues;
   }
 

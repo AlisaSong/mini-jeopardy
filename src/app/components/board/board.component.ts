@@ -10,10 +10,12 @@ export class BoardComponent implements OnInit {
   private values: string[] = ['100', '200', '300', '400', '500']
   constructor(private data: DataService) { }
 
-  ngOnInit() {
+  public async ngOnInit() {
     for(const value of this.values) {
-      this.data.getData(value);
+      await this.data.getData(value);
+      this.data.getRandomClue(value);
     }
+
   }
 
 }

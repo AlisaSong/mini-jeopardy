@@ -9,6 +9,7 @@ import { Clue } from '../models/clue';
 export class DataService {
   private baseUrl = 'http://www.jservice.io/api/clues';
   private category = '25';
+  private cluesCache: Record<string, Clue[]> = {};
   private maxDate = '1996-01-01T00:00:00.000Z';
   private minDate = '1996-12-31T23:59:59.999Z';
 
@@ -26,7 +27,7 @@ export class DataService {
         }
       }).toPromise();
 
-      console.log(clues);
+      this.cluesCache[value] = clues;
     } catch (err) {
       // TODO: Add detailed error message.
       console.log(err);
@@ -35,4 +36,15 @@ export class DataService {
     return clues;
   }
 
+  public getRandomClue(value: string): Clue {
+    const values = this.cluesCache[value];
+
+    if(!values || values.length === 0) {
+      return undefined;
+    }
+
+    const randomIndex = Math.floor(Math.random() * values.length);
+    console.dir(values[randomIndex]);
+    return values[randomIndex];
+  }
 }

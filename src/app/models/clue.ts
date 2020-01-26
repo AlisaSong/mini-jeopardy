@@ -10,4 +10,6 @@ export interface Clue {
     category_id: number;
     game_id: any;
     invalid_count: any;
+    answered: boolean;
+    picked: boolean;
 }

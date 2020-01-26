@@ -11,4 +11,5 @@ export interface Clue {
     game_id: any;
     invalid_count: any;
     answered: boolean;
+    picked: boolean;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagingService } from 'src/app/services/messaging.service';
 
 @Component({
   selector: 'app-scorekeeper',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScorekeeperComponent implements OnInit {
 
-  constructor() { }
+  constructor(public message: MessagingService) { }
 
   ngOnInit() {
   }
-
 }

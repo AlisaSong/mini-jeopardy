@@ -1,2 +1,9 @@
-<p>{{ currentMessage }}</p>
-current clue: {{ message?.currentClue?.question }}
+<section class="message-container">
+    <p>Instructions: {{ message?.currentInstruction }}</p>
+    <section *ngIf="message.currentClue && !message.currentClue.answered">
+        current clue: {{ message?.currentClue?.question }}
+        <p>
+            <input [(ngModel)]="answer"><button (click)="submitAnswer()">Submit</button>
+        </p>
+    </section>
+</section>

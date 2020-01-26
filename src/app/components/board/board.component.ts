@@ -21,6 +21,11 @@ export class BoardComponent implements OnInit {
   }
 
   public async ngOnInit() {
+    await this.restartGame();
+  }
+
+  public async restartGame(): Promise<void> {
+    this.clues = [];
     for (const value of this.values) {
       await this.data.getData(value);
       this.clues.push(this.data.getRandomClue(value));
@@ -28,11 +33,15 @@ export class BoardComponent implements OnInit {
   }
 
   public showClue(clue: Clue): void {
-    if(clue.answered) {
+    if (clue.picked) {
       return;
     }
 
-    clue.answered = true;
+    if (this.message.currentClue && !this.message.currentClue.answered) {
+      return;
+    }
+
+    clue.picked = true;
     this.message.setClue(clue);
   }
 }

@@ -1,4 +1,6 @@
 <h1>Science</h1>
 <ul>
-    <li class="clue" *ngFor="let clue of clues">{{clue.value | currency: 'USD':true:'2.0' }}</li>
+    <li class="clue" *ngFor="let clue of clues" (click)="showClue(clue)">
+        <span *ngIf="!clue.answered">{{clue.value | currency: 'USD':true:'2.0' }}</span>
+    </li>
 </ul>

@@ -1,11 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { BoardComponent } from './components/board/board.component';
+import { InteractionComponent } from './components/interaction/interaction.component';
+import { ScorekeeperComponent } from './components/scorekeeper/scorekeeper.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        BoardComponent,
+        InteractionComponent,
+        ScorekeeperComponent,
       ],
     }).compileComponents();
   }));
@@ -20,12 +26,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('mini-jeopardy');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('mini-jeopardy app is running!');
   });
 });

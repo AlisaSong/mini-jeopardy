@@ -4,11 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Getting Started
 
-After cloning this repository, please run 'npm install' to install required node modules.
+After cloning this repository, please run 'npm install' to install required node modules. Please note, to run `ng` commands, you must first download the Angular CLI.
 
 ## Run Project
 
-Run 'npm start' to run this project. A new browser window with the project will pop up once the project has compiled.
+Run `npm start` to run this project. A new browser window with the project will pop up once the project has compiled.
 
 ## Development server
 
